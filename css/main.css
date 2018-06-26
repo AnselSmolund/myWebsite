@@ -30,10 +30,6 @@ p {
 a {
   color: #1CBCAD;
   word-wrap: break-word;
-  -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
-  -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
-  -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
-  -o-transition: color 0.1s ease-in, background 0.1s ease-in;
   transition: color 0.1s ease-in, background 0.1s ease-in;
 }
 
@@ -42,14 +38,11 @@ a:focus {
   color: #7b7b7b;
   text-decoration: none;
   outline: 0;
+  border-bottom: 2px black solid;
 }
 
 a:before,
 a:after {
-  -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
-  -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
-  -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
-  -o-transition: color 0.1s ease-in, background 0.1s ease-in;
   transition: color 0.1s ease-in, background 0.1s ease-in;
 }
 
@@ -69,25 +62,16 @@ a:after {
 /* Header Wrap */
 .header {
   background: #1CBCAD;
-  background: url(../images/header-bg.jpg) no-repeat center top;
+  background-image: url(../images/mpls.jpg) no-repeat center top;
   padding-top:140px;
   text-align:center;
   background-attachment: relative;
   background-position: center center;
   min-height: 500px;
   width: 100%;
-
-  -webkit-background-size: 100%;
-  -moz-background-size: 100%;
-  -o-background-size: 100%;
   background-size: 100%;
-
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
 }
-
 .header h1 {
   font-size: 80px;
   color: white;
@@ -173,7 +157,7 @@ a:after {
 
 
 sm {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .desc .col-lg-3 {
