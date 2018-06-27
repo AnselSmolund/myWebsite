@@ -60,6 +60,11 @@ a:after {
 ---------------------------------------------------*/
 
 /* Header Wrap */
+.sketch-holder{
+  position: absolute;
+  top: 0px;
+  //background: #1CBCAD;
+}
 .header {
   background: #1CBCAD;
   background: url(../images/mpls.jpg) no-repeat center top;
