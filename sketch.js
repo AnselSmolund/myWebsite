@@ -15,8 +15,6 @@ function setup() {
 
 function draw() {
   background(200);
-
-  // If it's time for a new point
   if (millis() > next && painting) {
 
     // Grab mouse position
@@ -122,5 +120,5 @@ Particle.prototype.display = function(other) {
   }
 }
 function windowResized(){
-  resizeCanvas(windowWidth,100);
+  resizeCanvas(windowWidth,500);
 }
