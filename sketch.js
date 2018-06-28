@@ -11,15 +11,23 @@ function setup() {
   canvas.parent('sketch-holder');
   current = createVector(0,0);
   previous = createVector(0,0);
+  begin();
 }
 
 function draw() {
-  background(200);
+  background(28,186,173); //1CBCAD 00011100 10111100 10101101 1 + 4 + 7 + 32 + 128
   if (millis() > next && painting) {
 
     // Grab mouse position
-    current.x = mouseX;
-    current.y = mouseY;
+    var minX = previous.x - 50;
+    var minY = previous.y - 50;
+    var maxX = previous.x + 50;
+    var maxY = previous.y + 50;
+
+    cx = (random(1) * (maxX - minX + 1)) + minX;
+    cy = (random(1) * (maxY - minY + 1)) + minY;
+    current.x = constrain(cx, 0, width);
+    current.y = constrain(cy, 0, height);
 
     // New particle's force is based on mouse movement
     var force = p5.Vector.sub(current, previous);
@@ -44,18 +52,18 @@ function draw() {
 }
 
 // Start it up
-function mousePressed() {
+function begin() {
   next = 0;
   painting = true;
-  previous.x = mouseX;
-  previous.y = mouseY;
+  previous.x = width/2;
+  previous.y = height/2;
   paths.push(new Path());
 }
 
 // Stop
-function mouseReleased() {
-  painting = false;
-}
+// function mouseReleased() {
+//   painting = false;
+// }
 
 // A Path is a list of particles
 function Path() {
