@@ -18,11 +18,20 @@ function draw() {
     var minY = previous.y - 50;
     var maxX = previous.x + 50;
     var maxY = previous.y + 50;
-
     cx = (random(1) * (maxX - minX + 1)) + minX;
     cy = (random(1) * (maxY - minY + 1)) + minY;
-    current.x = constrain(cx, 0, width);
-    current.y = constrain(cy, 0, height);
+
+    if(mouseIsPressed &&
+      (mouseX < width && mouseX > 0) &&
+      (mouseY < height && mouseY > 0)){
+        current.x = mouseX;
+        current.y = mouseY;
+        disableSelect(document.getElementById('myName'));
+      }
+    else{
+      current.x = constrain(cx, 0, width);
+      current.y = constrain(cy, 0, height);
+    }
     var force = p5.Vector.sub(current, previous);
     force.mult(0.05);
     paths[paths.length - 1].add(current, force);
@@ -91,4 +100,16 @@ function Particle(position, force, hue) {
 
 function windowResized(){
   resizeCanvas(windowWidth,500);
+}
+
+function disableSelect(el){
+    if(el.addEventListener){
+        el.addEventListener("mousedown",disabler,"false");
+    } else {
+        el.attachEvent("onselectstart",disabler);
+    }
+}
+function disabler(e){
+    if(e.preventDefault){ e.preventDefault(); }
+    return false;
 }
